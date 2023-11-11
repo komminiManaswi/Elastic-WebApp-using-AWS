@@ -1,0 +1,11 @@
+[Unit]
+Description=Python instance for the Image classification App
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/project1
+ExecStart=python3 app_tier.py
+Restart=always
+[Install]
+WantedBy=multi-user.target

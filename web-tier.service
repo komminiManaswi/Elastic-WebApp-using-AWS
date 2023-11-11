@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn instance for Iaas Group Project 1
+After=network.target network-online.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/project1
+ExecStart=/home/ubuntu/project1/venv/bin/gunicorn -b localhost:8000 --chdir /home/ubuntu/project1 app:app --timeout 30 -k gevent --worker-connections 1000 --workers 12
+Restart=always
+[Install]
+WantedBy=multi-user.target
